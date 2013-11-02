@@ -28,10 +28,17 @@ class SpaceCalculator:
             for i in system:
                 i.update()
 
-    def drawSystem(self, system, screen, zoom, offset_x, offset_y):
-        #Put each object to screen
-        dx = (0 + screen.get_width()) * (1-zoom) / 2 + offset_x
-        dy = (0 + screen.get_height()) * (1-zoom) / 2 + offset_y
+    #Put each object to screen
+    def drawSystem(self, system, screen, zoom, offset_x, offset_y, focused_object_id):
+        # If view focused on some object - put it to screen
+        if focused_object_id > -1:
+            dx = screen.get_width() / 2 - system[focused_object_id].x * zoom
+            dy = screen.get_height() / 2 - system[focused_object_id].y * zoom
+        # Not focused - put view to fixed position
+        else:
+            dx = (0 + screen.get_width()) * (1-zoom) / 2 + offset_x
+            dy = (0 + screen.get_height()) * (1-zoom) / 2 + offset_y
+
 
         for i in system:
             i.draw(screen, zoom, dx, dy)

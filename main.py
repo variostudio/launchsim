@@ -37,6 +37,9 @@ def main():
     #Solar system init
     system = cfg.getSystem()
 
+    #Focus screen on
+    focused = -1
+
     calc = SpaceCalculator()
 
     done = False
@@ -74,6 +77,11 @@ def main():
                     zoom /= 2
                 if e.key == K_s:
                     save_screen = not save_screen
+                if e.key == K_TAB:
+                    focused += 1
+                    if focused >= len(system):
+                        focused = 0
+                    print('View focused on: ' + system[focused].name)
 
         if not paused:
             calc.newPosition(system)
@@ -81,7 +89,7 @@ def main():
             #Put space to screen
             screen.blit(bg, (0, 0))
 
-            calc.drawSystem(system, screen, zoom, offset_x, offset_y)
+            calc.drawSystem(system, screen, zoom, offset_x, offset_y, focused)
 
             #update screen
             pygame.display.update()

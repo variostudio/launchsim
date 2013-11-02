@@ -85,11 +85,8 @@ class Rocket(FlyObject):
     def getSize(self):
         return max(self.image.get_width()//2, self.image.get_height()//2)
 
-    def turnLeft(self):
-        self.head -= 5
-
-    def turnRight(self):
-        self.head += 5
+    def setHead(self, head):
+        self.head = head
 
     def engineOn(self):
         self.engine_on = True

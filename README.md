@@ -14,4 +14,4 @@ Keys used:
     Arrows	= Move viewport
     z,x		= Scale view
     s		= Toggle screen saving
-
+    TAB         = Focus screen to object

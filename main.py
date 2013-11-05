@@ -40,7 +40,7 @@ def main():
     #Focus screen on
     focused = -1
 
-    calc = SpaceCalculator()
+    calc = SpaceCalculator(CRASH_DIST, OUT_DIST)
 
     done = False
     paused = False
@@ -101,14 +101,13 @@ def main():
                 image.save(screen, file_to_save)
                 frame_saved = frame_no
 
-            if calc.getMin() < CRASH_DIST:
-                print("Collision detected: ", calc.getMin())
+            if calc.collisionDetected():
+                print("Collision detected! Exiting... ")
                 break
-            if calc.getMax() > OUT_DIST:
-                print("Out of system")
+            if calc.outOfSystemDetected():
+                print("Out of system! Exiting...")
                 break
-                #print("Distance: {0:6.2f}, round: {1:d}".format(r_max, circles))
-                #Farewell
+
     print(":-)")
 
 

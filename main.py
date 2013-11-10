@@ -15,6 +15,7 @@ def main():
     offset_x = cfg.getInitialX()
     offset_y = cfg.getInitialY()
     zoom = cfg.getInitialZoom()
+    landing_speed = cfg.getLandingMaxSpeed()
 
     #PyGame init
     pygame.init()
@@ -40,7 +41,7 @@ def main():
     #Focus screen on
     focused = -1
 
-    calc = SpaceCalculator(CRASH_DIST, OUT_DIST)
+    calc = SpaceCalculator(CRASH_DIST, OUT_DIST, landing_speed)
 
     done = False
     paused = False

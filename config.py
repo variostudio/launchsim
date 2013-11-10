@@ -11,6 +11,7 @@ class Config:
     display = (0, 0)
     initial_x = 0
     initial_y = 0
+    landing_max_speed = 0.0
     initial_zoom = 1
     star_colors = []
 
@@ -44,6 +45,8 @@ class Config:
 
         self.initial_x = int(sys.get("X", 0))
         self.initial_y = int(sys.get("Y", 0))
+
+        self.landing_max_speed = float(sys.get("LANDING_MAX_SPEED", 2))
         self.initial_zoom = float(sys.get("ZOOM", 1))
 
         self.display = (self.width, self.height)
@@ -122,6 +125,9 @@ class Config:
 
     def getInitialZoom(self):
         return self.initial_zoom
+
+    def getLandingMaxSpeed(self):
+        return self.landing_max_speed
 
     def getClass(self, kls):
         parts = kls.split('.')

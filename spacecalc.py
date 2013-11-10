@@ -9,15 +9,15 @@ class SpaceCalculator:
     min_dist = 0.0
     land_dist = 0.0
     max_dist = 0.0
+    landing_speed = 0.0
 
-    def __init__(self, min_dist, max_dist):
+    def __init__(self, min_dist, max_dist, landing_speed):
         self.max_dist = max_dist
         self.min_dist = min_dist
         self.land_dist = 2*min_dist
+        self.landing_speed = landing_speed
 
     def newPosition(self, system):
-        dist = 0
-
         for cnt in range(self.N):
             for i in system:
                 # if object is a Rocket - execute flight program
@@ -34,7 +34,8 @@ class SpaceCalculator:
                             i.calcAccelTo(j)
 
                         if not self.isLanded(i, j, dist):
-                            #print(abs(i.vy - j.vy), abs(i.vx - j.vx))
+                            #if isinstance(i, Rocket) and isinstance(j, Rocket):
+                                #print(abs(i.vy - j.vy), abs(i.vx - j.vx), i.name, j.name)
                             self.r_min = min(self.r_min, dist)
                         else:
                             self.setEqualSpeed(i, j)
@@ -71,11 +72,11 @@ class SpaceCalculator:
         if dist > self.land_dist:
             res = False
 
-        if abs(object1.vx - object2.vx) > 2:
+        if abs(object1.vx - object2.vx) > self.landing_speed:
             res = False
             #print("Vx1 - Vx2 is too big", abs(object1.vx - object2.vx))
 
-        if abs(object1.vy - object2.vy) > 2:
+        if abs(object1.vy - object2.vy) > self.landing_speed:
             res = False
             #print("Vy1 - Vy2 is too big ", abs(object1.vy - object2.vy))
 

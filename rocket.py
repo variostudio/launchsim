@@ -88,6 +88,9 @@ class Rocket(FlyObject):
     def setHead(self, head):
         self.head = head
 
+    def getHead(self):
+        return self.head
+
     def engineOn(self):
         self.engine_on = True
         print("Engine is ON at: {0:6.2f} flight time".format(self.t))

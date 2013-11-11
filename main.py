@@ -1,9 +1,11 @@
-import pygame
 import random
-from flyobj import *
-from rocket import *
-from config import *
-from spacecalc import *
+
+import pygame
+
+from simulator.rocket import *
+from simulator.config import *
+from simulator.spacecalc import *
+
 
 CRASH_DIST = 5
 OUT_DIST = 10000

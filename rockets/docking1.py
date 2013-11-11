@@ -1,4 +1,4 @@
-from rocket import Rocket
+from simulator.rocket import Rocket
 
 
 class Active(Rocket):

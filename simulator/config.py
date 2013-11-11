@@ -1,7 +1,7 @@
 import configparser
 import argparse
 import textwrap
-from rocket import *
+from simulator.rocket import *
 
 
 class Config:
@@ -26,11 +26,12 @@ class Config:
                     z            = Zoom in
                     x            = Zoom out
                     arrow keys   = Screen move
+                    TAB          = Center view to next object
             '''))
 
         parser.add_argument('-f', '--file',
                             dest='file',
-                            default='main.ini',
+                            default='config/main.ini',
                             help='configuration file')
 
         args = parser.parse_args()

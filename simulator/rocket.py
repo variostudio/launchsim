@@ -1,5 +1,6 @@
-from flyobj import *
 import math
+
+from simulator.flyobj import *
 
 
 class Rocket(FlyObject):

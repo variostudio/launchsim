@@ -26,6 +26,8 @@ class Config:
                     z            = Zoom in
                     x            = Zoom out
                     arrow keys   = Screen move
+                    s            = Start/Stop saving screens to screens/ directory. If started,
+                 screen shot per second will be stored
                     TAB          = Center view to next object
             '''))
 

@@ -43,7 +43,7 @@ def main():
     #Focus screen on
     focused = -1
 
-    calc = SpaceCalculator(CRASH_DIST, OUT_DIST, landing_speed)
+    calc = SpaceCalculator(CRASH_DIST, OUT_DIST, landing_speed, cfg)
 
     done = False
     paused = False
@@ -84,7 +84,7 @@ def main():
                     focused += 1
                     if focused >= len(system):
                         focused = 0
-                    print('View focused on: ' + system[focused].name)
+                    print('View focused on: ' + system[focused].getName())
 
         if not paused:
             calc.newPosition(system)

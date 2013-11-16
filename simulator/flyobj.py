@@ -109,3 +109,6 @@ class FlyObject:
 
     def getSize(self):
         return self.radius
+
+    def getName(self):
+        return self.name

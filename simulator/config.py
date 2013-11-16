@@ -75,8 +75,7 @@ class Config:
                                     float(self.config[i]["VY"]))
 
                     obj.initSurface(int(self.config[i]["R"]),
-                                    self.config[i]["color"],
-                                    self.space_color)
+                                    self.config[i]["color"])
 
                     s.append(obj)
 

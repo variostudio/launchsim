@@ -13,6 +13,7 @@ class FlyObject:
     surfaceColor = "black"
     others = []
     name = ''
+    image = ''
 
     #Creates new flying object like planet or star
     def __init__(self, name, mass, x, y, vx, vy):
@@ -26,10 +27,10 @@ class FlyObject:
 
         print("{0}, ({1}, {2}) v=({3}, {4}), mass={5}".format(name, x, y, vx, vy, mass))
 
-    def initSurface(self, R, surfaceColor, spaceColor):
+    def initSurface(self, R, surfaceColor):
         self.radius = R
-        self.image = Surface((R * 2, R * 2))
-        self.image.fill(Color(spaceColor))
+        self.image = Surface((R * 2, R * 2), SRCALPHA, 32)
+        self.image = self.image.convert_alpha()
         draw.circle(self.image, Color(surfaceColor), (R, R), R)
 
     #Distance to other F.O.

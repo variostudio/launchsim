@@ -13,6 +13,8 @@ class Config:
     initial_y = 0
     landing_max_speed = 0.0
     initial_zoom = 1
+    initial_object_focused = -1
+
     star_colors = []
 
     def __init__(self):
@@ -51,6 +53,7 @@ class Config:
 
         self.landing_max_speed = float(sys.get("LANDING_MAX_SPEED", 2))
         self.initial_zoom = float(sys.get("ZOOM", 1))
+        self.initial_object_focused = int(sys.get("FOCUSED_ON", -1))
 
         self.display = (self.width, self.height)
 
@@ -127,6 +130,9 @@ class Config:
 
     def getInitialZoom(self):
         return self.initial_zoom
+
+    def getInitialFocus(self):
+        return self.initial_object_focused
 
     def getLandingMaxSpeed(self):
         return self.landing_max_speed

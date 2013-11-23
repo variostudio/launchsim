@@ -97,5 +97,3 @@ class CombinedRocket(Rocket):
     def flightProgram(self):
         for i in self.rockets:
             i.flightProgram()
-
-

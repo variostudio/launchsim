@@ -41,7 +41,7 @@ def main():
     system = cfg.getSystem()
 
     #Focus screen on
-    focused = -1
+    focused = cfg.getInitialFocus()
 
     calc = SpaceCalculator(CRASH_DIST, OUT_DIST, landing_speed, cfg)
 
